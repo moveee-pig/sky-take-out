@@ -40,4 +40,6 @@ public interface DishService {
      * @param id
      */
     void start0rstop(Integer status, Long id);
+
+    List<DishVO> listWithFlavor(Dish dish);
 }
