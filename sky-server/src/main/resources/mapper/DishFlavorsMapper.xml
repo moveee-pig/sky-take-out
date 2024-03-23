@@ -8,6 +8,12 @@
             (#{df.dishId},#{df.name},#{df.value})
         </foreach>
     </insert>
+    <update id="update">
+        update dish_flavor
+        set name  = #{name},
+            value = #{value}
+        where id = #{id}
+    </update>
     <delete id="deleteByDishIds">
         delete from dish_flavor where dish_id in
         <foreach collection="dishIds" open="(" close=")" item="dishId" separator=",">

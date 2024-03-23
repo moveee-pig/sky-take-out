@@ -2,16 +2,50 @@ package com.sky.service;
 
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
+import com.sky.entity.Setmeal;
 import com.sky.result.PageResult;
+import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;
-
 import java.util.List;
 
 public interface SetmealService {
-    public void saveWithDish(SetmealDTO setmealDTO);
-    public PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
-    public void deleteBatch(List<Long> ids);
-    public SetmealVO getByIdWithDish(Long id);
-    public void update(SetmealDTO setmealDTO);
-    public void startOrStop(Integer status, Long id);
+
+    /**
+     * 新增套餐，同时需要保存套餐和菜品的关联关系
+     * @param setmealDTO
+     */
+    void saveWithDish(SetmealDTO setmealDTO);
+
+    /**
+     * 分页查询
+     * @param setmealPageQueryDTO
+     * @return
+     */
+    PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
+
+    /**
+     * 批量删除套餐
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
+
+    /**
+     * 动态条件查询套餐
+     * @param setmeal
+     * @return
+     */
+    List<Setmeal> list(Setmeal setmeal);
+
+    /**
+     * 根据id查询菜品选项
+     * @param id
+     * @return
+     */
+    List<DishItemVO> getDishItemById(Long id);
+
+    SetmealVO getByIdWithDish(Long id);
+
+    void update(SetmealDTO setmealDTO);
+
+    void start0rStop(Integer status, Long id);
 }

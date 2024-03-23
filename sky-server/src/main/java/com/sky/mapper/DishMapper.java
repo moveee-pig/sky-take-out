@@ -38,6 +38,7 @@ public interface DishMapper {
      **/
     @Select("select * from dish where id = #{id}")
     Dish getById(Long id);
+    
     /**
      * 根据主键删除菜品数据
      **/
@@ -71,4 +72,6 @@ public interface DishMapper {
     List<Dish> getBySetmealId(Long id);
     @AutoFill(OperationType.UPDATE)
     void updateDish(Dish dish);
+
+    List<Dish> getByIds(List<Long> ids);
 }

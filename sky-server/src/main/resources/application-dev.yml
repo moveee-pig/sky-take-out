@@ -11,3 +11,11 @@ sky:
     access-key-id: LTAI5tF8UrLK4aegkmE5RcbH
     access-key-secret: y36RGbfwsIAOtJdseUKvCq9TStCXDn
     bucket-name: yyb-sky-take-out
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
+  wechat:
+    appid: wx4d52d6eddee0d7df
+    secret: 0705b7e22c7ecfd334748bc1f5756eda

@@ -5,41 +5,31 @@ import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.vo.DishVO;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
 public interface DishService {
     /**
-     * 新增菜品及其口味
-     **/
-    public void saveWithFlavor(DishDTO dishDTO);
-    /**
-     * 菜品分页查询
-     **/
-    PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO);
-    /**
-     * 菜品批量删除
-     * @param ids
+     * 新增菜品和口味数据
+     * @param dishDTO
      */
-    void deleteBatch(List<Long> ids);
+    void saveWithFlavor(DishDTO dishDTO);
 
-    DishVO getByIdWithFlavor(Long id);
+    PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO);
 
-    void updateWithFlavor(DishDTO dishDTO);
+    DishVO getByIdWithFlavor(Long dishId);
+
+    void deleteByIds(List<Long> ids);
+
+    void update(DishVO dishVO);
+
     /**
-     * 根据分类id查询菜品
-     * @param categoryId
+     * 条件查询菜品和口味
+     * @param dish
      * @return
      */
-    List<Dish> list(Long categoryId);
-    /**
-     * 菜品起售停售
-     * @param status
-     * @param id
-     */
-    void start0rstop(Integer status, Long id);
-
     List<DishVO> listWithFlavor(Dish dish);
+
+    List<Dish> list(Long categoryId);
+
+    void start0rstop(Integer status, Long id);
 }
